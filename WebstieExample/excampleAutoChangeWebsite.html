@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoChangeWeb</title>
+
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span id="time">5</span> second, auto change to .....
+    </p>
+
+
+<script>
+        var second=5;
+        var time = document.getElementById("time");
+
+        //show second
+        function showtime() {
+            second--;
+
+            //determine if need to change website
+            if (second<=0){
+                location.href = "http://www.google.com";
+            }
+
+            time.innerHTML = second;
+
+        }
+
+        //set timer
+        setInterval(showtime, 1000);
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Record</title>
+
+    <style>
+        table{
+            border: solid 1px;
+            margin: auto;
+            width: 500px;
+        }
+
+        td,th{
+            text-align: center;
+            border: 1px solid;
+        }
+        div{
+            margin-top: 10px;
+            margin-left: 30%;
+        }
+        .out{
+            background-color: white;
+        }
+        .over{
+            background-color: pink;
+        }
+    </style>
+
+    <script>
+        //after load webpage, then run code
+        window.onload = function () {
+
+            //select all
+            document.getElementById("selectAll").onclick= function () {
+                // get all check books
+                var cbs = document.getElementsByName("cb");
+                for(var i=0; i<cbs.length; i++){
+                   // cbs[i].checked = true;
+                    cbs[i].setAttribute("checked", "true");
+                }
+
+            }
+
+            //unselect all
+            document.getElementById("unselectAll").onclick= function () {
+                // get all check books
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = false;
+                    //cbs[i].setAttribute("checked", "true");
+                }
+            }
+
+            //select reverse
+            document.getElementById("selectRev").onclick= function () {
+                // get all check books
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = !cbs[i].checked;
+
+                }
+            }
+
+            //select first
+            document.getElementById("first").onclick= function () {
+                // get all check books
+                var cbs = document.getElementsByName("cb");
+                // this is the current element
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = this.checked;
+
+                }
+            }
+
+            //set mouse move event/color to all tr
+            var trs = document.getElementsByTagName("tr");
+            for (var i = 0; i <trs.length ; i++) {
+                //mouse move over
+                trs[i].onmouseover = function () {
+                    this.className="over";
+                }
+                //mouse move out
+                trs[i].onmouseout = function () {
+                    this.className="out";
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+
+<div>
+    <input type="text" id="id" placeholder="please input id">
+    <input type="text" id="name" placeholder="please input your name">
+    <input type="text" id="gender" placeholder="please input gender">
+    <input type="button" id="btn_add" value="add" ">
+</div>
+
+<table id="table">
+    <caption>Student record</caption>
+    <tr>
+        <td><input type="checkbox" name="cb" id="first"></td>
+        <td>id</td>
+        <td>name</td>
+        <td>gender</td>
+        <td>action</td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>1</td>
+        <td>Tome</td>
+        <td>male</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this)">delete</a></td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>2</td>
+        <td>Kate</td>
+        <td>female</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this)">delete</a></td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>3</td>
+        <td>Jack</td>
+        <td>male</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this)">delete</a></td>
+    </tr>
+</table>
+<div>
+    <input type="button" id="selectAll" value="select all">
+    <input type="button" id="unselectAll" value="unselect all">
+    <input type="button" id="selectRev" value="select reverse">
+
+</div>
+
+
+</body>
+</html>

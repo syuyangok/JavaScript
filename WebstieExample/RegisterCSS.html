@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+
+    <script>
+        window.onload = function () {
+            var form = document.getElementById("form");
+            form.onsubmit=function () {
+                return checkUserName();
+            }
+            document.getElementById("username").onblur = checkUserName;
+        }
+        
+        function checkUserName() {
+            //get value of input username
+            var username = document.getElementById("username").value;
+
+            // regulation of username
+            var regUsername = /^\w{6,12}$/;
+            var flag = regUsername.test(username);
+
+            var spanUsername = document.getElementById("spanUsername");
+
+            if(flag){
+                spanUsername.innerHTML = "correct!";
+            }
+            else{
+                spanUsername.innerHTML = "wrong username!"
+            }
+
+            return flag;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="layout">
+        <div class="reLeft">
+            <p>New User</p>
+            <p>User register</p>
+        </div>
+
+        <div class="reCenter">
+
+            <div class="reForm">
+            <form action="#" id="form" method="get">
+                <table>
+                    <tr>
+                        <td class="tdLeft"> <label for="username">Username</label></td>
+                        <td> <input type="text" name="username" id="username" placeholder="Please enter user name">
+                        <span id="spanUsername" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"> <label for="password">Password</label></td>
+                        <td> <input type="password" name="password" id="password"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"><label for="email"> email</label> </td>
+                        <td><input type="email" name="email" id="email"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"><label for="name"> name</label> </td>
+                        <td><input type="text" name="name" id="name"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"><label for="mobile"> mobile</label> </td>
+                        <td><input type="number" name="mobile" id="mobile"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"><label > sex</label> </td>
+                        <td><input type="radio" name="gender" value="male"> male
+                            <input type="radio" name="gender" value="female"> female </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft"><label for="birthday"> birthday</label> </td>
+                        <td><input type="date" name="birthday" id="birthday"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdLeft" ><label for="checkcode"> check code</label> </td>
+                        <td><input type="text" name="checkcode" id="checkcode">
+                             <img id="imageCheck" src="image/yanzhengma.jfif">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="Submit!" id="submit"> </td>
+
+                    </tr>
+
+                </table>
+            </form>
+            </div>
+
+        </div>
+
+        <div class="reRight">
+            <p>Already user ? <a href="#">Log in</a></p>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>
